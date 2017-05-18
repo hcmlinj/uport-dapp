@@ -2,7 +2,7 @@
 uPort demo
 
 ## Smart Contracts
-* uport-project version: [uport-identity](https://github.com/uport-project/uport-identity) and [uport-registry](https://github.com/uport-project/uport-registry)
+* Official uPort version: [uport-identity](https://github.com/uport-project/uport-identity) and [uport-registry](https://github.com/uport-project/uport-registry)
 * Jamie version: [uport-contracts](https://github.com/hcmlinj/uport-contracts)
 
 ## Config
