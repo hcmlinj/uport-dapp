@@ -1,9 +1,9 @@
 {
   "name": "uport-dapp",
   "version": "1.0.0",
-  "description": "uPort DApp Demo",
+  "description": "uPort ÐApp Demo",
   "main": "server.js",
-  "repository": "git",
+  "repository": "https://github.com/hcmlinj/uport-dapp.git",
   "author": "Jamie",
   "license": "MIT",
   "scripts": {
