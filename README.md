@@ -48,3 +48,8 @@ yarn start
 
 ## Open
 [http://127.0.0.1:3000](http://127.0.0.1:3000)
+
+## Generate JWT RS256 public/private RSA key pair
+```bash
+./jwt_rs256.sh
+```
