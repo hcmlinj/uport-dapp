@@ -11,6 +11,7 @@
                 <router-link class="btn btn-default btn-lg" to="/controller">Controller</router-link>
                 <router-link class="btn btn-default btn-lg" to="/recovery">Recovery</router-link>
                 <router-link class="btn btn-default btn-lg" to="/registry">Registry</router-link>
+                <router-link class="btn btn-default btn-lg" to="/credential">Credential</router-link>
             </div>
         </div>
     </nav>

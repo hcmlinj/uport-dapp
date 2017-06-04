@@ -7,6 +7,7 @@ const proxy = require('./controllers/proxy')
 const controller = require('./controllers/controller')
 const recovery = require('./controllers/recovery')
 const registry = require('./controllers/registry')
+const jwt = require('./controllers/jwt')
 
 module.exports = router => {
     router.get('/config', async ctx => {
@@ -16,6 +17,8 @@ module.exports = router => {
     router.get('/', index)
 
     router.get('/eth/info', eth.info)
+    router.post('/eth/sign', eth.sign)
+    router.post('/eth/verify', eth.verify)
 
     router.post('/identity-factory/create', identityFactory.create)
     router.post('/identity-factory/query', identityFactory.query)
@@ -34,4 +37,7 @@ module.exports = router => {
 
     router.post('/registry/set', registry.set)
     router.post('/registry/get', registry.get)
+
+    router.post('/jwt/sign', jwt.sign)
+    router.get('/jwt/verify', jwt.verify)
 }
