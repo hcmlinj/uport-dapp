@@ -14,6 +14,7 @@ const Proxy = resolve => require(['@/pages/Proxy.vue'], resolve)
 const Controller = resolve => require(['@/pages/Controller.vue'], resolve)
 const Recovery = resolve => require(['@/pages/Recovery.vue'], resolve)
 const Registry = resolve => require(['@/pages/Registry.vue'], resolve)
+const Credential = resolve => require(['@/pages/Credential.vue'], resolve)
 
 Vue.use(VueRouter)
 
@@ -31,7 +32,9 @@ const router = new VueRouter({
         { path: '/recovery/', component: Recovery },
         { path: '/recovery/:recoveryProp', component: Recovery, props: true },
         { path: '/registry/', component: Registry },
-        { path: '/registry/:proxyProp', component: Registry, props: true }
+        { path: '/registry/:proxyProp', component: Registry, props: true },
+        { path: '/credential/', component: Credential },
+        { path: '/credential/:userKeyProp/:proxyProp', component: Credential, props: true }
     ]
 })
 

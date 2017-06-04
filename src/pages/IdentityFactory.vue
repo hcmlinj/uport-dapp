@@ -19,7 +19,7 @@
                         <input type="text" class="form-control" placeholder="userKey" v-model="userKey">
                     </div>
                     <button type="button" class="btn btn-default" @click="query">Query</button>
-                    <pre>Proxy: {{ proxy }} <router-link v-if="proxy !== ''" :to="`/proxy/${proxy}`">(Proxy)</router-link><router-link v-if="proxy !== ''" :to="`/registry/${proxy}`">(Registry)</router-link></pre>
+                    <pre>Proxy: {{ proxy }} <router-link v-if="proxy !== ''" :to="`/proxy/${proxy}`">(Proxy)</router-link> <router-link v-if="proxy !== ''" :to="`/registry/${proxy}`">(Registry)</router-link> <router-link v-if="proxy !== ''" :to="`/credential/${userKey}/${proxy}`">(Credential)</router-link></pre>
                 </form>
             </div>
         </div>
