@@ -5,6 +5,8 @@ const Logger = require('concurrency-logger')
 const Router = require('koa-router')
 const bodyparser = require('koa-bodyparser')
 const serve = require('koa-static')
+const jwt = require('koa-jwt')
+const fs = require('fs')
 
 const routes = require('./routes')
 
@@ -18,6 +20,7 @@ routes(router)
 
 app
     .use(logger)
+    .use(jwt({ secret: fs.readFileSync('./keystore/id_rsa.pub'), passthrough: true }))
     .use(bodyparser())
     .use(router.routes())
     .use(serve('dist'))
