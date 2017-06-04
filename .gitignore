@@ -8,5 +8,5 @@ node_modules
 # log
 *.log
 
-build
+dist
 keystore
