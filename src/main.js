@@ -32,7 +32,7 @@ const router = new VueRouter({
         { path: '/recovery/', component: Recovery },
         { path: '/recovery/:recoveryProp', component: Recovery, props: true },
         { path: '/registry/', component: Registry },
-        { path: '/registry/:proxyProp', component: Registry, props: true },
+        { path: '/registry/:userKeyProp/:proxyProp', component: Registry, props: true },
         { path: '/credential/', component: Credential },
         { path: '/credential/:userKeyProp/:proxyProp', component: Credential, props: true }
     ]
