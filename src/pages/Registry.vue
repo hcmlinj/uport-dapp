@@ -5,6 +5,7 @@
                 <router-link to="/">Home</router-link>
             </li>
             <li class="active">Registry</li>
+            <li class="active">{{ userKey }}</li>
             <li class="active">{{ proxy }}</li>
         </ol>
     
@@ -28,7 +29,8 @@
                     </div>
                     <div class="form-group">
                         <label>value</label>
-                        <input type="text" class="form-control" placeholder="value" v-model="value">
+                        <!--<input type="text" class="form-control" placeholder="value" v-model="value">-->
+                        <textarea class="form-control" cols="30" rows="10" v-model="value"></textarea>
                     </div>
                     <button type="button" class="btn btn-default" @click="set">Set</button>
                     <pre>{{ hash }}</pre>
@@ -66,13 +68,13 @@ import axios from 'axios'
 import Event from '@/components/Event.vue'
 
 export default {
-    props: ['proxyProp'],
+    props: ['userKeyProp', 'proxyProp'],
     components: { Event },
     data() {
         return {
             proxy: this.proxyProp,
-            userKey: '',
-            registrationIdentifier: '',
+            userKey: this.userKeyProp,
+            registrationIdentifier: 'profile',
             subject: '',
             value: '',
             issuer: '',
