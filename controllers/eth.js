@@ -1,6 +1,6 @@
 'use strict'
 
-const utils = require('ethereumjs-util')
+const util = require('ethereumjs-util')
 const axios = require('axios')
 
 const web3 = require('../models/web3')
@@ -20,7 +20,10 @@ exports.info = async ctx => {
 
 exports.sign = async ctx => {
     const body = ctx.request.body
-    const message = `${body.userKey},${body.proxy}`
+    const message = JSON.stringify({
+        userKey: body.userKey,
+        proxy: body.proxy
+    })
 
     ctx.body = {
         message,
@@ -31,12 +34,12 @@ exports.sign = async ctx => {
 exports.verify = async ctx => {
     const body = ctx.request.body
 
-    const r = utils.toBuffer(body.signed.signature.slice(0, 66))
-    const s = utils.toBuffer('0x' + body.signed.signature.slice(66, 130))
-    const v = utils.toBuffer('0x' + body.signed.signature.slice(130, 132)).readInt8()
-    const m = utils.toBuffer(web3.sha3(body.signed.message))
-    const pub = '0x' + utils.ecrecover(m, v, r, s).toString('hex')
-    const addr = '0x' + utils.pubToAddress(pub).toString('hex')
+    const signature = util.fromRpcSig(body.signed.signature)
+    const pub = util.ecrecover(util.hashPersonalMessage(util.sha3(body.signed.message)), signature.v, signature.r, signature.s)
+    const addr = util.pubToAddress(pub)
 
-    ctx.body = { pub, addr }
+    ctx.body = {
+        pub: `0x${pub.toString('hex')}`,
+        addr: `0x${addr.toString('hex')}`
+    }
 }

@@ -9,7 +9,7 @@
             <li class="active">{{ proxy }}</li>
         </ol>
     
-        <!--<div class="panel panel-default">
+        <div class="panel panel-default">
             <div class="panel-heading">Sign Message</div>
             <div class="panel-body">
                 <form>
@@ -43,19 +43,27 @@
                     <pre>{{ result }}</pre>
                 </form>
             </div>
-        </div>-->
+        </div>
     
         <div class="panel panel-default">
             <div class="panel-heading">JWT Sign</div>
             <div class="panel-body">
                 <form>
                     <div class="form-group">
-                        <label>userKey</label>
-                        <input type="text" class="form-control" placeholder="userKey" v-model="userKey">
-                    </div>
-                    <div class="form-group">
                         <label>proxy</label>
                         <input type="text" class="form-control" placeholder="proxy" v-model="proxy">
+                    </div>
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" class="form-control" placeholder="name" v-model="name">
+                    </div>
+                    <div class="form-group">
+                        <label>github</label>
+                        <input type="text" class="form-control" placeholder="github" v-model="github">
+                    </div>
+                    <div class="form-group">
+                        <label>comment</label>
+                        <input type="text" class="form-control" placeholder="comment" v-model="comment">
                     </div>
                     <button type="button" class="btn btn-default" @click="jwtSign">Sign</button>
                     <pre>{{ jwt }}</pre>
@@ -72,7 +80,8 @@
                         <textarea class="form-control" cols="30" rows="10" placeholder="jwt" v-model="jwt"></textarea>
                     </div>
                     <button type="button" class="btn btn-default" @click="jwtVerify">Verify</button>
-                    <pre>{{ decode }}</pre>
+                    <pre>{{ decode.verify }}</pre>
+                    <pre>{{ decode.decode }}</pre>
                 </form>
             </div>
         </div>
@@ -91,7 +100,10 @@ export default {
             signed: '',
             result: '',
             jwt: '',
-            decode: ''
+            decode: '',
+            name: 'Jamie',
+            github: 'https://github.com/hcmlinj/uport-dapp',
+            comment: 'just comment'
         }
     },
     methods: {
